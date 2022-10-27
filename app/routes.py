@@ -3,16 +3,16 @@ from flask import render_template
 
 
 @app.route('/')
-def HomePage():
-    people = [
-        {'name' : "Ayden",
-        'age' : 23},
-        {'name' : "Joey",
-        'age' : 20},
-        {'name' : "Ivan",
-        'age' : 16}]
-    return render_template('index.html', names = people)
+def home_page():
+    return render_template('index.html')
 
-@app.route('/login')
-def loginPage():
-    return render_template('login.html')
+@app.route('/favorites')
+def favorites_page():
+    favartists = [
+        {'name' : 'Run the Jewels', 'song' : 'Nobody Speak'},
+        {'name' : 'Freddie Dredd', 'song' : 'Wrath'},
+        {'name' : 'Half Alive', 'song' : 'still feel.'},
+        {'name' : 'Joji', 'song' : 'CANT GET OVER YOU'},
+        {'name' : 'Rainbow Kitten Suprise', 'song' : 'When it lands'}
+    ]
+    return render_template('favorites.html', favartists = favartists)
